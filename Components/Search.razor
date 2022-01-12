@@ -1,0 +1,37 @@
+﻿<section style="margin-bottom: 10px">
+  <div class="row">
+    <div class="col-md-10">
+          <input type="text" class="form-control" placeholder="Search by version" 
+           @bind-value="@SearchTerm" @bind-value:event="oninput" @onkeyup="SearchChanged" 
+           />
+    </div>
+    <div class="col-md-2">
+          <button Class="Thebutton" @onclick="() => VersionSearchClick()" >Search</button>
+    </div>
+</div>
+<div class="row">
+Versions List
+</div>
+<div class="row">
+@SearchStatus
+</div>
+
+<div class="allver">
+    @if(VersionsResults != null)
+    {
+            foreach(var software in VersionsResults)
+            {
+                    <div class="row"><div class="col-md-2">@software.Version</div><div class="col-md-10">@software.Name</div></div>
+            }
+    }
+</div>
+
+
+</section>
+<style>
+    .Thebutton
+    {
+        width: 100px;
+        height: 36px;
+    }
+</style>
